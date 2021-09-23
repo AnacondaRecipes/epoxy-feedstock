@@ -10,6 +10,13 @@ if [[ $target_platform == osx* ]] ; then
         -D x11=false
         -D tests=false
     )
+elif [[ $target_platform == linux-ppc64le ]] ; then
+    meson_config_args=(
+        -D docs=false
+        -D egl=no
+        -D x11=true
+        -D tests=false
+    )
 else
     meson_config_args=(
         -D docs=false

@@ -26,7 +26,7 @@ requirements:
     - pkg-config
     - pthread-stubs  # [linux]
     - {{ compiler('c') }}
-    - {{ cdt('mesa-libEGL-devel') }}  # [linux]
+    - {{ cdt('mesa-libEGL-devel') }}  # [linux and not ppc64le]
     - {{ cdt('mesa-libGL-devel') }}  # [linux]
     - {{ cdt('libx11-devel') }}  # [linux]
     - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
