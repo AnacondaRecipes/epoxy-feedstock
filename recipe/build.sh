@@ -4,25 +4,24 @@
 
 set -ex
 
-if [[ $target_platform == osx* ]] ; then
-    meson_config_args=(
+meson_config_args=(
         -D docs=false
-        -D x11=false
         -D tests=false
+)
+
+if [[ $target_platform == osx* ]] ; then
+    meson_config_args+=(
+        -D x11=false
     )
-elif [[ $target_platform == linux-ppc64le ]] ; then
-    meson_config_args=(
-        -D docs=false
+elif [[ $target_platform == linux-ppc64le ]] || [[ $target_platform == linux-s390x ]]; then
+    meson_config_args+=(
         -D egl=no
         -D x11=true
-        -D tests=false
     )
 else
-    meson_config_args=(
-        -D docs=false
+    meson_config_args+=(
         -D egl=yes
         -D x11=true
-        -D tests=false
     )
 fi
 
