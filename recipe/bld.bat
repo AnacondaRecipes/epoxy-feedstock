@@ -14,7 +14,7 @@ set ^"MESON_OPTIONS=^
  ^"
 
 :: configure build using meson
-%BUILD_PREFIX%\python.exe %BUILD_PREFIX%\Scripts\meson setup builddir !MESON_OPTIONS!
+meson setup builddir !MESON_OPTIONS!
 if errorlevel 1 exit 1
 
 ninja -v -C builddir
